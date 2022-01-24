@@ -8,7 +8,7 @@ import Layout from './src/Layout';
 
 interface DocumentProps {
   children: React.ReactNode;
-  title?: string;
+  title: string;
 }
 
 const Document = withEmotionCache(({ children, title }: DocumentProps, emotionCache) => {
@@ -33,11 +33,10 @@ const Document = withEmotionCache(({ children, title }: DocumentProps, emotionCa
   return (
     <html lang="en">
       <head>
-        <title>Work Events</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta name="theme-color" content={theme.palette.primary.main} />
-        {title ? <title>{title}</title> : null}
+        <title>{title}</title>
         <Meta />
         <Links />
         <link
@@ -60,7 +59,7 @@ const Document = withEmotionCache(({ children, title }: DocumentProps, emotionCa
 // https://remix.run/api/conventions#route-filenames
 export default function App() {
   return (
-    <Document>
+    <Document title="Work Events" >
       <Layout>
         <Outlet />
       </Layout>
